@@ -1,0 +1,3 @@
+ELVD = "TP-NW-4391-ELV-001-TNW"
+print(ELVD)
+
