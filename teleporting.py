@@ -1,83 +1,63 @@
 import random
 
-class TeleportationSimulation:
+class TeleportationGame:
     def __init__(self):
-        self.walkway_length = 100  # Length of the walkway
-        self.ceiling_height = 10   # Height of the ceiling
-        self.floor_level = 0       # Level of the floor
-        self.wall_distance = 5     # Distance between the two walls
-        self.teleportation_limit = 50  # Limit of teleportation
-        self.story_goal = "Reach the other side of the walkway"
-        self.main_character = "Echo"
-        self.impact_character = "The Architect"
-        self.story_problem = "Malfunctioning teleportation device"
+        self.position = 0
+        self.score = 0
+        self.story = {
+            "goal": "Reach the other side of the walkway",
+            "main_character": "Echo",
+            "impact_character": "The Architect",
+            "problem": "Malfunctioning teleportation device"
+        }
+        self.y_table = {
+            "obstacle_chance": 0.2,
+            "pit_chance": 0.4,
+            "wall_chance": 0.6,
+            "teleport_distance": 10
+        }
 
-    def teleport(self, current_position):
-        # Calculate the new position after teleportation
-        new_position = current_position + random.randint(-self.teleportation_limit, self.teleportation_limit)
-        
-        # Check if the new position is within the walkway limits
-        if new_position < 0:
-            new_position = 0
-        elif new_position > self.walkway_length:
-            new_position = self.walkway_length
-        
-        # Check if the new position is within the ceiling and floor limits
-        if random.randint(0, 100) < 10:  # 10% chance of hitting the ceiling or floor
-            if random.randint(0, 1) == 0:  # Hit the ceiling
-                print("Hit the ceiling!")
-                new_position = self.ceiling_height
-            else:  # Hit the floor
-                print("Hit the floor!")
-                new_position = self.floor_level
-        
-        # Check if the new position is within the wall limits
-        if random.randint(0, 100) < 20:  # 20% chance of hitting a wall
-            if random.randint(0, 1) == 0:  # Hit the left wall
-                print("Hit the left wall!")
-                new_position = -self.wall_distance
-            else:  # Hit the right wall
-                print("Hit the right wall!")
-                new_position = self.walkway_length + self.wall_distance
-        
-        return new_position
+    def teleport(self):
+        new_position = self.position + random.randint(-self.y_table["teleport_distance"], self.y_table["teleport_distance"])
+        print(f"Current position: {self.position}")
+        print(f"New position: {new_position}")
+        self.position = new_position
 
-    def apply_solution(self, solution):
-        # Apply the solution to the teleportation simulation
-        if solution < 1000:
-            self.teleportation_limit = 95
-        elif solution < 15000:
-            self.teleportation_limit = 100
-        elif solution < 17000:
-            self.teleportation_limit = 1500
-        elif solution < 5000:
-            self.teleportation_limit = 1700
-        elif solution < 1500:
-            self.teleportation_limit = 100
-        elif solution < 500:
-            self.teleportation_limit = 50
-        elif solution < 10:
-            self.teleportation_limit = 5
-        elif solution < 1:
-            self.teleportation_limit = 1
+    def check_obstacles(self):
+        obstacle_chance = random.random()
+        if obstacle_chance < self.y_table["obstacle_chance"]:
+            print("Hit the right wall!")
+            self.position += 5
+        elif obstacle_chance < self.y_table["pit_chance"]:
+            print("Encountered a pit!")
+            self.position -= 5
+        elif obstacle_chance < self.y_table["wall_chance"]:
+            print("Hit the left wall!")
+            self.position -= 5
 
-def main():
-    simulation = TeleportationSimulation()
-    solution = 1000  # Replace with the desired solution value
-    simulation.apply_solution(solution)
-    current_position = 0
-    
-    for _ in range(10):
-        print(f"Current position: {current_position}")
-        current_position = simulation.teleport(current_position)
-        print(f"New position: {current_position}\n")
+    def update_score(self):
+        self.score += 1
+        print(f"Score: {self.score}")
 
-    # Print the story using the Elveirdor Dramatica writing plan module
-    print("Story:")
-    print(f"Goal: {simulation.story_goal}")
-    print(f"Main Character: {simulation.main_character}")
-    print(f"Impact Character: {simulation.impact_character}")
-    print(f"Problem: {simulation.story_problem}")
+    def play_game(self):
+        print("Welcome to the Teleportation Game!")
+        print(self.story["goal"])
+        print(f"Main Character: {self.story['main_character']}")
+        print(f"Impact Character: {self.story['impact_character']}")
+        print(f"Problem: {self.story['problem']}")
+
+        while True:
+            user_input = input("Press 't' to teleport, 'q' to quit: ")
+            if user_input.lower() == 't':
+                self.teleport()
+                self.check_obstacles()
+                self.update_score()
+            elif user_input.lower() == 'q':
+                print("Game over!")
+                break
+            else:
+                print("Invalid input. Please try again.")
 
 if __name__ == "__main__":
-    main()
+    game = TeleportationGame()
+    game.play_game()
