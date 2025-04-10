@@ -113,3 +113,63 @@ def speak_text(text):
     tts = gTTS(text=text, lang='en')
     tts.save("temp.mp3")
     os.system("mpv temp.mp3")
+import google.auth
+from googleapiclient.discovery import build
+
+# Set up the Google Assistant API credentials
+creds = google.auth.get_user_credentials(scopes=["https://www.googleapis.com/auth/assistant"])
+assistant = build("assistant", "v1", credentials=creds)
+
+# Process the user's query
+query = "Hello, how are you?"
+response = assistant.texts().query(query=query).execute()
+print(response)
+
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route("/api/elveirdor", methods=["POST"])
+def elveirdor_api():
+    text = request.get_json()["text"]
+    # Process the text using your Elveirdor language-based system
+    response = {"response": "Hello, how are you?"}
+    return response
+
+if __name__ == "__main__":
+    app.run(debug=True)
+import RPi.GPIO as GPIO
+
+# Set up the GPIO pins
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(17, GPIO.OUT)
+
+# Turn the robot on
+GPIO.output(17, GPIO.HIGH)
+import tensorflow as tf
+
+# Load the speech recognition model
+model = tf.keras.models.load_model("speech_recognition_model.h5")
+
+# Process the audio
+audio = tf.audio.decode_wav(tf.io.read_file("audio.wav"))
+audio = tf.reshape(audio, (1, -1))
+
+# Make predictions
+predictions = model.predict(audio)
+print(predictions)
+
+import spacy
+
+# Load the spaCy model
+nlp = spacy.load("en_core_web_sm")
+
+# Process the text
+text = "Hello, how are you?"
+doc = nlp(text)
+
+# Print the tokens and entities
+for token in doc:
+    print(token.text, token.pos_)
+for entity in doc.ents:
+    print(entity.text, entity.label_)
