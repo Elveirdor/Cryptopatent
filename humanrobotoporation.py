@@ -103,3 +103,13 @@ while True:
         break
     else:
         print("Invalid choice. Please try again.")
+
+from gtts import gTTS
+import os
+
+# ...
+
+def speak_text(text):
+    tts = gTTS(text=text, lang='en')
+    tts.save("temp.mp3")
+    os.system("mpv temp.mp3")
