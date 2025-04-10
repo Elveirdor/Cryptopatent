@@ -125,3 +125,49 @@ print("\nProjected Genetic Code:")
 genetic_code = generate_genetic_code(100)
 projected_genetic_code = project_genetic_code(genetic_code, 70000)
 print(projected_genetic_code)
+
+# Save the projected genetic code to a file
+with open("projected_genetic_code.txt", "w") as f:
+    f.write(projected_genetic_code)
+
+# Visualize the results
+import matplotlib.pyplot as plt
+
+# Count the frequency of each letter in the projected genetic code
+letter_frequencies = {}
+for letter in projected_genetic_code:
+    if letter in letter_frequencies:
+        letter_frequencies[letter] += 1
+    else:
+        letter_frequencies[letter] = 1
+
+# Plot a bar chart of the letter frequencies
+plt.bar(letter_frequencies.keys(), letter_frequencies.values())
+plt.xlabel("Letter")
+plt.ylabel("Frequency")
+plt.title("Letter Frequencies in Projected Genetic Code")
+plt.show()
+
+# ... (rest of your script remains the same)
+
+# Save the projected genetic code to a file
+with open("projected_genetic_code.txt", "w") as f:
+    f.write(projected_genetic_code)
+
+# Visualize the results
+import matplotlib.pyplot as plt
+
+# Count the frequency of each letter in the projected genetic code
+letter_frequencies = {}
+for letter in projected_genetic_code.replace("-", "").replace("\n", ""):
+    if letter in letter_frequencies:
+        letter_frequencies[letter] += 1
+    else:
+        letter_frequencies[letter] = 1
+
+# Plot a bar chart of the letter frequencies
+plt.bar(letter_frequencies.keys(), letter_frequencies.values())
+plt.xlabel("Letter")
+plt.ylabel("Frequency")
+plt.title("Letter Frequencies in Projected Genetic Code")
+plt.show()
