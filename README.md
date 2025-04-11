@@ -1,3 +1,7 @@
+![1000034593](https://github.com/user-attachments/assets/a03e3257-55f3-47d3-8971-2131132bf488)
+![1000034152](https://github.com/user-attachments/assets/f87cde87-f0c5-4498-b300-a22e48b1f85e)
+![1000001199](https://github.com/user-attachments/assets/12a96bbc-3d0e-4843-927e-4c24d22f3dc3)
+
 # Cryptopatent
 Language based cryptopatent
 
