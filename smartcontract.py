@@ -9,7 +9,6 @@ class CryptopatentContract:
         self.royalty_payments = {}
 
     def add_licensing_terms(self, licensee, terms):
-        self.licensing_terms[licensee] = terms
 
     def add_royalty_payments(self, licensee, payments):
         self.royalty_payments[licensee] = payments
