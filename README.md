@@ -1,25 +1,30 @@
-# Cryptopatent
-Language based cryptopatent
+# Elveirdor
 
-# Stock Exchange Energy Signature Analysis
+solar rehabilitation, social rehabilitation, financial rehabilitation. blood rehabilitation, dna rehabilitation, genetic rehabilitation.
 
-This repository contains a Python script for analyzing the energy signature of stock data.
-
-## Features
-* Simulates retrieving stock data
-* Calculates the energy signature of the stock data
-* Adapts the energy signature to a language symbol
-
-## Requirements
-* Python 3.x
-* Random library
-
-## Usage
-1. Clone the repository
-2. Run the script using Python: `python stockexchangeenergysig.py`
-
-## Contributing
-Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request.
+## Table of Contents
+- [License](#license)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Author](#author)
+- [Copyright](#copyright)
+- [Contact](#contact)
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+
+This project is licensed under the **MIT** License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+**Lauren Victoria Reed** - *2021*
+
+## Copyright
+
+Copyright (c) 2021 **Lauren Victoria Reed**. All rights reserved.
+Elveirdor is a copyrighted work, registration number TXu002252366.
+
+## Contact
+
+laurenvr1992@gmail.com
+
