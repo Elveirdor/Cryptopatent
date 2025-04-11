@@ -4,7 +4,7 @@ from geopy.geocoders import Nominatim
 # The image is a stylized, hand-drawn map of a fictional land... (full description from previous response)
 
 # --- Elveirdor Language Data ---
-elveirdor_alphabet = {
+elveirdor_alphabet =I'm {
     'A': 'ahh', 'E': 'Eh/ah', 'EE': 'Ē', 'I': 'I', 'O': 'A oo', 'U': 'oo',
     'B': 'bea', 'C': 'SSS', 'D': 'day', 'F': 'Fea', 'G': 'g', 'H': 'Hee',
     'J': 'jewel', 'K': 'Kill', 'L': 'Lŭ', 'M': 'my mae', 'N': 'nee', 'P': 'Pī',
